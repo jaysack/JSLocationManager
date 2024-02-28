@@ -65,6 +65,7 @@ do {
     print(error.localizedDescription)
 }
 ```
+<br>
 
 ### Notifications
 `JSLocationManager` allows you to use a `NotificationCenter` object of your choice to receive notifications above different location events.\
