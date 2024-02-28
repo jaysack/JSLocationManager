@@ -1,4 +1,4 @@
-<img src="">
+<img src="./Resources/Images/jslocationmanager-image.png">
 
 # 🔗 JSConstraints
 
