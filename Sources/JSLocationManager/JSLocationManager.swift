@@ -11,10 +11,11 @@ import CoreLocation
 public final class JSLocationManager: NSObject, JSLocationAuthorizable, JSLocationMonitorable, JSRegionMonitorable {
 
     // MARK: - Dependencies
-    public var notificationCenter: JSLocationManagerNotificationCenter?
+    public var notificationCenter: NotificationCenter?
 
     // MARK: - Properties
     public static let shared = JSLocationManager()
+    public static var bundleIdentifier: String = Bundle.main.bundleIdentifier ?? ""
     public lazy var geocoder = CLGeocoder()
     public lazy var manager = CLLocationManager()
     public private(set) var currentRegion: CLRegion?
@@ -73,13 +74,13 @@ public extension JSLocationManager {
 
 // MARK: - EXT. NSNotification Name
 public extension JSLocationManager {
-    static let didRequestLocations: NSNotification.Name = .init("io.ghosttechnologies.didRequestLocation")
-    static let didRequestPlacemarks: NSNotification.Name = .init("io.ghosttechnologies.didRequestPlacemarks")
-    static let didFailLocationsUpdate: NSNotification.Name = .init("io.ghosttechnologies.didFailLocationUpdate")
-    static let didUpdateLocations: NSNotification.Name = .init("io.ghosttechnologies.didUpdateLocations")
-    static let didUpdatePlacemarks: NSNotification.Name = .init("io.ghosttechnologies.didUpdatePlacemarks")
-    static let didChangeAuthorization: NSNotification.Name = .init("io.ghosttechnologies.didChangeAuthorization")
-    static let didEnterRegion: NSNotification.Name = .init("io.ghosttechnologies.didEnterRegion")
+    static let didRequestLocations: NSNotification.Name = .init("\(JSLocationManager.bundleIdentifier).didRequestLocation")
+    static let didRequestPlacemarks: NSNotification.Name = .init("\(JSLocationManager.bundleIdentifier).didRequestPlacemarks")
+    static let didFailLocationsUpdate: NSNotification.Name = .init("\(JSLocationManager.bundleIdentifier).didFailLocationUpdate")
+    static let didUpdateLocations: NSNotification.Name = .init("\(JSLocationManager.bundleIdentifier).didUpdateLocations")
+    static let didUpdatePlacemarks: NSNotification.Name = .init("\(JSLocationManager.bundleIdentifier).didUpdatePlacemarks")
+    static let didChangeAuthorization: NSNotification.Name = .init("\(JSLocationManager.bundleIdentifier).didChangeAuthorization")
+    static let didEnterRegion: NSNotification.Name = .init("\(JSLocationManager.bundleIdentifier).didEnterRegion")
 }
 
 // MARK: - EXT. CLLocationManager Delegate
