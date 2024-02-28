@@ -48,6 +48,7 @@ The `JSLocationPlacemarkable` protocol allows you to get more information about 
 #### JSLocationMonitorable
 The `JSLocationMonitorable` protocol allows you to monitor a specific region on a map, like entering and leaving a specific region.
 <br>
+<br>
 
 ### JSLocationManager
 The `JSLocationManager` object is provided to you so you don't have to manually conform to the protocol above. In most case, you should be fine with just using it instead of creating your custom objects.
@@ -67,6 +68,7 @@ do {
 
 ### Notifications
 `JSLocationManager` allows you to use a `NotificationCenter` object of your choice to receive notifications above different location events.\
+<br>
 **We recommend using the provided custom `.locationUpdates` notification center for notifcation-heavy applications** as this will reduce the workload in your `NotificationCenter.default` shared object.
 ```swift
 locationManager.notificationCenter = .locationUpdates
@@ -74,8 +76,9 @@ locationManager.notificationCenter = .locationUpdates
 <br>
 
 ### Bundle Identifier
-Although not required, it is recommended to set up the bundle identifier. Behind the scene it uses your app main bundle ID and can be omitted if you do not have a custom set up.\
-This bundle identifier is used in notification names when posting notification using the NofiticationCenter.
+Although not required, it is recommended to set up the bundle identifier.\
+<br>
+Behind the scene it uses your app main bundle ID and can be omitted if you do not have a custom set up.\ The bundle identifier is used in notification names when posting notification using a `NofiticationCenter` object.
 - - - -
 <br>
 
